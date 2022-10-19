@@ -60,4 +60,51 @@ public class PosterTest {
         Assertions.assertArrayEquals(actual, expected);
     }
 
+    @Test
+
+    public void shoudFindLastifUnderLimit() {
+        Poster poster = new Poster();
+
+        poster.addMovie("Бладшот");
+        poster.addMovie("Вперед");
+        poster.addMovie("Отель Белград");
+        poster.addMovie("Джентельмены");
+        poster.addMovie("Человек-нивидимка");
+        poster.addMovie("Тролли");
+        poster.addMovie("Шрек");
+        poster.addMovie("Игра престолов");
+        poster.addMovie("Мстители");
+        poster.addMovie("Тор");
+        poster.addMovie("Матрица");
+
+        String[] actual = poster.findLast();
+        String[] expected = {"Матрица", "Тор", "Мстители", "Игра престолов", "Шрек", "Тролли", "Человек-нивидимка", "Джентельмены", "Отель Белград", "Вперед"};
+
+        Assertions.assertArrayEquals(actual, expected);
+    }
+
+    @Test
+
+    public void shoudFindLastifChangeLimit() {
+        Poster poster = new Poster(11);
+
+
+        poster.addMovie("Бладшот");
+        poster.addMovie("Вперед");
+        poster.addMovie("Отель Белград");
+        poster.addMovie("Джентельмены");
+        poster.addMovie("Человек-нивидимка");
+        poster.addMovie("Тролли");
+        poster.addMovie("Шрек");
+        poster.addMovie("Игра престолов");
+        poster.addMovie("Мстители");
+        poster.addMovie("Тор");
+        poster.addMovie("Матрица");
+
+        String[] actual = poster.findLast();
+        String[] expected = {"Матрица", "Тор", "Мстители", "Игра престолов", "Шрек", "Тролли", "Человек-нивидимка", "Джентельмены", "Отель Белград", "Вперед", "Бладшот"};
+
+        Assertions.assertArrayEquals(actual, expected);
+    }
+
 }
